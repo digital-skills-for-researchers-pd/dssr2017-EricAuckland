@@ -21,3 +21,6 @@ Copy and paste the EEG_PPPipeline folder into the aforementioned folder.
 Double click the EEG_PPPipeline folder and right click the ????. m file and 'run'
 You will then need to choose which option you want. Either 'quick' or 'difficult' which are oulined above.
 Depending on which method you choose you will need to input some values.
+Once you have filled in all the parameters, the script will run through your data. This could take some time depending on how large your file/s are.
+The output file will consist of an array with time (ms) on columns, and electrode/s as a row. 
+If all goes well, a figure should be plotted :).
