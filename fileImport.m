@@ -2,6 +2,9 @@
 clear all
 clc
 
+% Parameters are collected here
+run('parameters')
+
 % Start EEGLAB
 [ALLEEG EEG CURRENTSET ALLCOM] = eeglab;
 
@@ -10,6 +13,4 @@ clc
 if ~iscellstr(filenames), filenames = {filenames}; end
 
 % Check if multiple files and append...
-EEG = pop_readegi 
-
-% Filtering all of your data needs
+EEG = pop_readegi('pathname''filenames', [],[],'auto');
