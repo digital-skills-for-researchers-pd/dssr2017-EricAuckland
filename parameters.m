@@ -16,4 +16,3 @@ paraOffset = str2num(answer{3});
 paraMinEpoch = str2num(answer{4});
 paraMaxEpoch = str2num(answer{5});
 end
-
