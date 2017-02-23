@@ -10,7 +10,7 @@ run('parameters')
 
 % Open dialog to import files
 [filenames, pathname] = uigetfile({'*.raw','RAW-files (*.raw)'}, 'Select the RAW data files','MultiSelect', 'on');
-if ~iscellstr(filenames), filenames = {filenames}; end
 
-% Check if multiple files and append...
-EEG = pop_readegi('pathname''filenames', [],[],'auto');
+% Add first file
+EEG = pop_readegi(strcat(pathname,filenames), [],[],'auto');
+[ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, 0,'gui','off'); 
