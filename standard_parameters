@@ -1,0 +1,35 @@
+# Run PPPipeline.m
+Open EEGLAB
+
+# Dialog box appears for impporting file/s
+File's are imported and appended if needed
+
+# Filter
+Filter with a butterworth at highpass of 0.1Hz and lowpass of 30Hz.
+
+# Apply scalp locations 
+Apply EGI scalp locations with Cz as reference
+
+# Interpolate bad channels
+Spherical interpolation of bad channels with +- 5 standard deviations
+
+# Correct trigger latency
+## User add in system delay and experiment delay.
+
+# Re-reference to average reference.
+Set to average reference with 4:132 and Cz values
+
+# Extract epochs
+## User adds in epoch size and associated triggers are extracts
+
+# Baseline correction
+The epoch baseline is correct from start of epoch to 0ms.
+
+# Artifact rejection
+Artifacts are removed via abnormal vaues of +-100mv.
+
+# Output data file to an excel spreadsheet inside data folder
+Data is ouput to a .xlsx
+
+# Plot simple figure of individual triggers
+Plot a figure in MatLab for each trigger.
