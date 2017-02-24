@@ -1,4 +1,4 @@
-function [paraElectrodes, paraTriggers, delaySize, paraMinEpoch, paraMaxEpoch] = parametersPPP( )
+function [paraElectrodes, paraTriggers, delaySize, paraMinEpoch, paraMaxEpoch] = parametersPPP()
 
 % Parameters file
 % What method do you desire
