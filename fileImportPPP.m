@@ -1,9 +1,9 @@
 % Clearing workspace
-clear all
-clc
+clear all;
+clc;
 
 % Parameters are collected here
-run('parameters')
+[paraElectrodes, paraTriggers, delaySize, paraMinEpoch, paraMaxEpoch] = parametersPPP( );
 
 % Start EEGLAB
 [ALLEEG EEG CURRENTSET ALLCOM] = eeglab;
@@ -14,3 +14,13 @@ run('parameters')
 % Add first file
 EEG = pop_readegi(strcat(pathname,filenames), [],[],'auto');
 [ALLEEG EEG CURRENTSET] = pop_newset(ALLEEG, EEG, 0,'gui','off'); 
+
+% Filter
+run('filterPPP');
+
+% EGI locations
+run('egiScalpLoc.m');
+
+% Correct trigger latency
+
+
