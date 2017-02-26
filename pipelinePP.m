@@ -18,7 +18,7 @@ clc;
 [EEG] = filterPPP(EEG);
 
 % EGI locations
-%run('egiScalpLoc.m');
+[EEG] = egiScalpLoc(EEG, pathName);
 
 % Correct trigger latency
 
