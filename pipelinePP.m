@@ -6,19 +6,19 @@ clc;
 [paraElectrodes, paraTriggers, delaySize, paraMinEpoch, paraMaxEpoch] = parametersPPP();
 
 % Start EEGLAB
-[ALLEEG, EEG,] = eeglab;
+[ALLEEG, EEG] = eeglab;
 
 % Find dataset
 [fileNames, pathName] = findDataset();
 
 % Import dataset
-% [fileNames, pathName, ALLEEG, EEG] = importDatasets();
+[ALLEEG, EEG, CURRENTSET] = importDatasets(pathName, fileNames, ALLEEG, EEG, CURRENTSET);
 
 % Filter
-run('filterPPP');
+[EEG] = filterPPP(EEG);
 
 % EGI locations
-run('egiScalpLoc.m');
+%run('egiScalpLoc.m');
 
 % Correct trigger latency
 
