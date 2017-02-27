@@ -1,6 +1,5 @@
 % Clearing workspace
-clear all;
-clc;
+clear all; clc;
 
 % Parameters are collected here
 [paraElectrodes, paraTriggers, delaySize, paraMinEpoch, paraMaxEpoch] = parametersPPP();
@@ -36,4 +35,7 @@ clc;
 [EEG] = baselineCorrPPP(EEG, paraMinEpoch);
 
 % Artefact rejection
-[ EEG ] = artRejectPPP( EEG, paraMinEpoch, paraMaxEpoch );
+[EEG] = artRejectPPP(EEG, paraMinEpoch, paraMaxEpoch);
+
+% Plot ERP
+[ EEG ] = plotFigurePPP(EEG, paraElectrodes, paraTriggers);
