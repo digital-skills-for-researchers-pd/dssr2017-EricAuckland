@@ -1,7 +1,7 @@
-function [EEG, indelec] = interpolatePPP(EEG)
+function [EEG] = interpolatePPP(EEG)
 
-[EEG, indelec] = pop_rejchan(EEG, 'elec',[1:128] ,'threshold',5,'norm','on','measure','kurt');
-[EEG] = pop_interp(EEG,indelec,'Spherical');
+foundBadChans = (EEG.chanlocs);
+[EEG] = pop_rejchan(EEG, 'elec',[1:128] ,'threshold',5,'norm','on','measure','kurt');
+[EEG] = pop_interp(EEG,foundBadChans,'Spherical');
     
 end
-
