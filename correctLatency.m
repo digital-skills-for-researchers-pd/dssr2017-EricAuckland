@@ -5,4 +5,3 @@ adjustedDelaySize = delaySize/samplingRateFix;
 for j = 1:size(EEG.event,2);
     EEG.event(j).latency = EEG.event(j).latency + adjustedDelaySize;
 end;
-end;
