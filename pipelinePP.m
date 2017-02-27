@@ -23,5 +23,15 @@ clc;
 % Correct trigger latency
 [EEG] = correctLatency(EEG, delaySize);
 
-%Interpolation
+% Interpolation
 [EEG] = interpolatePPP(EEG);
+
+% Average reference
+[EEG] = aveRefPPP(EEG);
+
+% Epoch
+[EEG] = epochPPP(EEG, paraMinEpoch, paraMaxEpoch, paraTriggers);
+
+% Baseline correction
+[EEG] = baselineCorrPPP(EEG, paraMinEpoch);
+
