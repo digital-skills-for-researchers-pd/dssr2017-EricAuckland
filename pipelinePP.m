@@ -35,3 +35,5 @@ clc;
 % Baseline correction
 [EEG] = baselineCorrPPP(EEG, paraMinEpoch);
 
+% Artefact rejection
+[ EEG ] = artRejectPPP( EEG, paraMinEpoch, paraMaxEpoch );
