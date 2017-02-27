@@ -21,5 +21,4 @@ clc;
 [EEG] = egiScalpLoc(EEG, pathName);
 
 % Correct trigger latency
-
-
+[EEG] = correctLatency(EEG, delaySize);
