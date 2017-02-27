@@ -22,3 +22,6 @@ clc;
 
 % Correct trigger latency
 [EEG] = correctLatency(EEG, delaySize);
+
+%Interpolation
+[EEG] = interpolatePPP(EEG);
