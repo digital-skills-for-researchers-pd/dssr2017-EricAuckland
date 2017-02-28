@@ -1,6 +1,6 @@
-function [ EEG ] = plotFigurePPP(EEG, paraElectrodes);
+function [ EEG ] = plotFigurePPP(EEG, paraElectrodes, paraTriggers);
 
-% Plots basi ERP
-figure; pop_erpimage(EEG,1, paraElectrodes,[[]],(num2str(paraElectrodes)),10,1,{},[],'' ,'yerplabel','\muV','erp','on');
+% Plots basic ERP
+figure; pop_erpimage(EEG,1, paraElectrodes,[[]],(strcat((num2str(paraElectrodes)),'/', paraTriggers)),10,1,{},[],'' ,'yerplabel','\muV','erp','on');
 
 end
