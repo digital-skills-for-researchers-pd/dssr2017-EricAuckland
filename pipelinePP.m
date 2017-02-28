@@ -29,7 +29,7 @@ clear all; clc;
 [EEG] = aveRefPPP(EEG);
 
 % Epoch
-[EEG] = epochPPP(EEG, paraMinEpoch, paraMaxEpoch, paraTriggers);
+[EEG, splitParaTriggers] = epochPPP(EEG, paraMinEpoch, paraMaxEpoch, paraTriggers);
 
 % Baseline correction
 [EEG] = baselineCorrPPP(EEG, paraMinEpoch);
@@ -38,4 +38,4 @@ clear all; clc;
 [EEG] = artRejectPPP(EEG, paraMinEpoch, paraMaxEpoch);
 
 % Plot ERP
-[ EEG ] = plotFigurePPP(EEG, paraElectrodes, paraTriggers);
+[EEG] = plotFigurePPP(EEG, paraElectrodes);
