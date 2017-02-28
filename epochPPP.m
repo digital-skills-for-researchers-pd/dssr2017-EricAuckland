@@ -1,4 +1,4 @@
-function [EEG] = epochPPP(EEG, paraMinEpoch, paraMaxEpoch, paraTriggers)
+function [EEG, splitParaTriggers] = epochPPP(EEG, paraMinEpoch, paraMaxEpoch, paraTriggers)
 
 splitParaTriggers = strsplit(paraTriggers,' ')
 
