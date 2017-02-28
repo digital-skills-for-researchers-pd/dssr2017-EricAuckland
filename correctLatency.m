@@ -1,4 +1,6 @@
 function [EEG] = correctLatency(EEG, delaySize)
+
+% Corrects for the amplifier and stimulus presentation delay
 samplingRateFix = 1000/EEG.srate;
 adjustedDelaySize = delaySize/samplingRateFix;
 
