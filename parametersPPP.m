@@ -2,8 +2,8 @@ function [paraElectrodes, paraTriggers, delaySize, paraMinEpoch, paraMaxEpoch] =
 
 % Parameters file
 % What method do you desire
-whichMethod = {'Easy', 'Hard'};
-[Selection, OK] = listdlg('ListString', whichMethod);
+%whichMethod = {'Easy', 'Hard'};
+%[Selection, OK] = listdlg('ListString', whichMethod);
 
 % Parameters
 prompt={'What electrode/s do you desire:','Name triggers to epoch around:','What is the trigger latency and amplifier lag (ms)?:','Epoch start (ms):','Epoch end (ms):'};
