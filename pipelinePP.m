@@ -15,7 +15,7 @@ clear all; clc;
 [fileNames, pathName] = uigetfile({'*.raw','RAW-files (*.raw)'}, 'Select the RAW data files','MultiSelect', 'on');
 
 %% Import dataset
-[ALLEEG, EEG, CURRENTSET] = importDatasets(pathName, fileNames, ALLEEG, EEG, CURRENTSET);
+[ALLEEG, EEG, CURRENTSET] = importDatasetsPPP(pathName, fileNames, ALLEEG, EEG, CURRENTSET);
 
 %% Filter
 % Filters the dataset
@@ -25,7 +25,7 @@ EEG  = pop_basicfilter( EEG,  1:128 , 'Boundary', 'boundary', 'Cutoff',  [ 0.1 3
 EEG=pop_chanedit(EEG, 'load',{strcat(pathName, 'GSN-HydroCel-129.sfp'), 'filetype' 'autodetect'},'setref',{'4:132' 'Cz'},'changefield',{132 'datachan' 0});
 
 %% Correct trigger latency
-[EEG] = correctLatency(EEG, delaySize);
+[EEG] = correctLatencyPPP(EEG, delaySize);
 
 %% Interpolation
 [EEG] = interpolatePPP(EEG);
