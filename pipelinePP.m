@@ -37,7 +37,7 @@ EEG = pop_reref( EEG, [],'refloc',struct('labels',{'Cz'},'Y',{0},'X',{5.4492e-16
 [EEG, splitParaTriggers] = epochPPP(EEG, paraMinEpoch, paraMaxEpoch, paraTriggers);
 
 %% Baseline correction
-EEG = pop_rmbase(EEG, [paraMinEpoch    0]);
+[EEG] = pop_rmbase(EEG, [paraMinEpoch    0]);
 
 %% Artefact rejection
 [EEG] = artRejectPPP(EEG, paraMinEpoch, paraMaxEpoch);
