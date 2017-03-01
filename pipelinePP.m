@@ -43,4 +43,4 @@ EEG = pop_rmbase(EEG, [paraMinEpoch    0]);
 [EEG] = artRejectPPP(EEG, paraMinEpoch, paraMaxEpoch);
 
 %% Plot ERP
-[EEG] = plotFigurePPP(EEG, paraElectrodes);
+[EEG] = plotFigurePPP(EEG, paraElectrodes, paraTriggers);
