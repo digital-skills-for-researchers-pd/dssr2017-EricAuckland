@@ -1,5 +1,5 @@
 %% Make sure you have EEGLAB and ERPLAB toolboxes installed.
-%% Create a data folder with your data in it. This flder needs to contain the EGI scalp locations.
+%% Create a data folder with your data in it. This folder needs to contain the EGI scalp locations.
 
 %% Clearing workspace
 clear all; clc;
@@ -15,7 +15,7 @@ clear all; clc;
 [fileNames, pathName] = uigetfile({'*.raw','RAW-files (*.raw)'}, 'Select the RAW data files','MultiSelect', 'on');
 
 %% Import dataset
-[ALLEEG, EEG, CURRENTSET] = importDatasets(pathName, fileNames, ALLEEG, EEG, CURRENTSET);
+[ALLEEG, EEG, CURRENTSET, numberOfDatasets] = importDatasetsPPP(pathName, fileNames, ALLEEG, EEG, CURRENTSET);
 
 %% Filter
 % Filters the dataset
@@ -25,7 +25,7 @@ EEG  = pop_basicfilter( EEG,  1:128 , 'Boundary', 'boundary', 'Cutoff',  [ 0.1 3
 EEG=pop_chanedit(EEG, 'load',{strcat(pathName, 'GSN-HydroCel-129.sfp'), 'filetype' 'autodetect'},'setref',{'4:132' 'Cz'},'changefield',{132 'datachan' 0});
 
 %% Correct trigger latency
-[EEG] = correctLatency(EEG, delaySize);
+[EEG] = correctLatencyPPP(EEG, delaySize);
 
 %% Interpolation
 [EEG] = interpolatePPP(EEG);
@@ -37,10 +37,16 @@ EEG = pop_reref( EEG, [],'refloc',struct('labels',{'Cz'},'Y',{0},'X',{5.4492e-16
 [EEG, splitParaTriggers] = epochPPP(EEG, paraMinEpoch, paraMaxEpoch, paraTriggers);
 
 %% Baseline correction
-EEG = pop_rmbase(EEG, [paraMinEpoch    0]);
+[EEG] = pop_rmbase(EEG, [paraMinEpoch    0]);
 
 %% Artefact rejection
 [EEG] = artRejectPPP(EEG, paraMinEpoch, paraMaxEpoch);
 
 %% Plot ERP
-[EEG] = plotFigurePPP(EEG, paraElectrodes);
+[EEG] = plotFigurePPP(EEG, paraElectrodes, paraTriggers);
+
+%% Output data for analysis
+meanEEG = mean(EEG.data,3);
+
+filename = 'testdata.xlsx';
+xlswrite(filename,meanEEG,'')
