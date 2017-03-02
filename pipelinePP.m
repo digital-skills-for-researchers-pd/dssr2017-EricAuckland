@@ -46,3 +46,7 @@ EEG = pop_reref( EEG, [],'refloc',struct('labels',{'Cz'},'Y',{0},'X',{5.4492e-16
 [EEG] = plotFigurePPP(EEG, paraElectrodes, paraTriggers);
 
 %% Output data for analysis
+meanEEG = mean(EEG.data,3);
+
+filename = 'testdata.xlsx';
+xlswrite(filename,meanEEG,'')
