@@ -1,5 +1,5 @@
 %% Make sure you have EEGLAB and ERPLAB toolboxes installed.
-%% Create a data folder with your data in it. This flder needs to contain the EGI scalp locations.
+%% Create a data folder with your data in it. This folder needs to contain the EGI scalp locations.
 
 %% Clearing workspace
 clear all; clc;
@@ -15,7 +15,7 @@ clear all; clc;
 [fileNames, pathName] = uigetfile({'*.raw','RAW-files (*.raw)'}, 'Select the RAW data files','MultiSelect', 'on');
 
 %% Import dataset
-[ALLEEG, EEG, CURRENTSET] = importDatasetsPPP(pathName, fileNames, ALLEEG, EEG, CURRENTSET);
+[ALLEEG, EEG, CURRENTSET, numberOfDatasets] = importDatasetsPPP(pathName, fileNames, ALLEEG, EEG, CURRENTSET);
 
 %% Filter
 % Filters the dataset
@@ -44,3 +44,5 @@ EEG = pop_reref( EEG, [],'refloc',struct('labels',{'Cz'},'Y',{0},'X',{5.4492e-16
 
 %% Plot ERP
 [EEG] = plotFigurePPP(EEG, paraElectrodes, paraTriggers);
+
+%% Output data for analysis
